@@ -293,7 +293,7 @@ class Decoder
                 } elseif (\extension_loaded('gmp')) {
                     $pointer = gmp_strval(gmp_add($pointerOffset, $this->pointerBase));
                 } elseif (\extension_loaded('bcmath')) {
-                    $pointer = bcadd($pointerOffset, (string) $this->pointerBase);
+                    $pointer = (int) bcadd((string) $pointerOffset, (string) $this->pointerBase);
                 } else {
                     throw new RuntimeException(
                         'The gmp or bcmath extension must be installed to read this database.'
